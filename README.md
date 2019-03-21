@@ -72,3 +72,4 @@ github的名字和项目名 Jungle2329/getlearn.git
 $ git merge --no-ff -m "提交日志" dev
 本次合并会创建一个commit所以需要 -m "日志"
 ```
+修复bug

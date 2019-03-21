@@ -89,3 +89,10 @@ stash@{0}: WIP on dev: f52c633 add merge
 
 你可以多次`stash`，恢复的时候，先用`git stash list`查看，然后恢复指定的`stash`，用命令：  
 `$ git stash apply stash@{0}`
+
+### 7.使用-D来强制删除未合并的分支
+当正在开发的分支不用的时候，不能合并进主分支，又想要删除当前分支的数据：  
+```
+使用		git branch -d feature 是删不掉的
+要使用	git branch -D feature 强制删除未合并的分支
+```

@@ -1,6 +1,9 @@
 # gitlearn
 
 ### 1.创建
+创建git版本库：  
+`$ git init`
+
 查看git状态：  
 `git status`
 
@@ -13,7 +16,6 @@
 提交缓冲区内容，-m <msg> 是添加提交日志：  
 `git commit -m "<msg>"`
 
-
 查看提交日志：  
 ```
 //查看多行日志
@@ -22,7 +24,30 @@ git log
 git log --pretty=oneline
 ```
 
-### 2.提交到github
+### 2.版本回退
+回退上一个版本：  
+`$ git reset --hard HEAD^`
+
+跳转到某一个版本：  
+`$ git reset --hard 1094a`  
+其中1094af就是在log中看到的版本号中的某几位，不用写全也可以
+
+查看输入的命令记录：  
+`git reflog`
+
+######总结
+HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令`git reset --hard commit_id`。  
+穿梭前，用`git log`可以查看提交历史，以便确定要回退到哪个版本。  
+要重返未来，用`git reflog`查看命令历史，以便确定要回到未来的哪个版本。
+
+### 3.撤销修改
+场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令`git checkout -- <file>`
+
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令`git reset HEAD <file>`，就回到了场景1，第二步按场景1操作。
+
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。
+
+### 4.提交到github
 查看远程库：  
 `git remote`
 
@@ -40,7 +65,7 @@ github的名字和项目名 Jungle2329/getlearn.git
 提交到远程库：  
 `git push <name>`
 
-### 3.分支
+### 5.分支
 查看分支：  
 `git branch`
 
@@ -61,11 +86,11 @@ github的名字和项目名 Jungle2329/getlearn.git
 删除分支name：  
 `git branch -d <name>`
 
-### 4.解决冲突
+### 6.解决冲突
 用带参数的git log也可以看到分支的合并情况：
 `git log --graph --pretty=oneline --abbrev-commit`
 
-### 5.分支管理策略
+### 7.分支管理策略
 使用`git merge dev`的时候默认使用`Fast forword`模式，这种模式下，删除分支后，会丢掉分支信息  
 如果想要强制禁用`Fast forword`可以使用如下方法：  
 ```
@@ -73,7 +98,7 @@ $ git merge --no-ff -m "提交日志" dev
 本次合并会创建一个commit所以需要 -m "日志"
 ```
 
-### 6.bug修复使用stash功能保存当前工作进度
+### 8.bug修复使用stash功能保存当前工作进度
 当开发一半的时候，有bug需要修改，可以把当前进度使用stash功能保存  
 `$ git stash`  
 保存后当前分支就是完全clean的状态，这时可以查看保存的信息
@@ -90,9 +115,30 @@ stash@{0}: WIP on dev: f52c633 add merge
 你可以多次`stash`，恢复的时候，先用`git stash list`查看，然后恢复指定的`stash`，用命令：  
 `$ git stash apply stash@{0}`
 
-### 7.使用-D来强制删除未合并的分支
+### 9.使用-D来强制删除未合并的分支
 当正在开发的分支不用的时候，不能合并进主分支，又想要删除当前分支的数据：  
 ```
 使用		git branch -d feature 是删不掉的
 要使用	git branch -D feature 强制删除未合并的分支
 ```
+
+### 10.多人协作
+查看远程库的信息：  
+`$ git remote`
+
+查看远程库的具体信息：  
+`$ git remote -v`
+
+推送分支：  
+`$ git push origin master`
+
+推送其他分支：  
+`$ git push origin dev`
+
+`master`分支是主分支，因此要时刻与远程同步；
+
+`dev`分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；
+
+`bug`分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；
+
+`feature`分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。

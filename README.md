@@ -60,3 +60,5 @@ github的名字和项目名 Jungle2329/getlearn.git
 
 删除分支name：  
 `git branch -d <name>`
+
+你才傻逼

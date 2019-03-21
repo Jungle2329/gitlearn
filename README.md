@@ -72,4 +72,20 @@ github的名字和项目名 Jungle2329/getlearn.git
 $ git merge --no-ff -m "提交日志" dev
 本次合并会创建一个commit所以需要 -m "日志"
 ```
-修复bug
+
+### 6.bug修复使用stash功能保存当前工作进度
+当开发一半的时候，有bug需要修改，可以把当前进度使用stash功能保存  
+`$ git stash`  
+保存后当前分支就是完全clean的状态，这时可以查看保存的信息
+```
+$ git stash list
+stash@{0}: WIP on dev: f52c633 add merge
+```
+保存后可以再任意修改bug或者使用分支修改bug后提交，提交后使用
+
+现在需要还原保存的stash，有两种方法：  
+一是用`git stash apply`恢复，但是恢复后，`stash`内容并不删除，你需要用`git stash drop`来删除；  
+二是用`git stash pop`同时恢复并且删除`stash`
+
+你可以多次`stash`，恢复的时候，先用`git stash list`查看，然后恢复指定的`stash`，用命令：  
+`$ git stash apply stash@{0}`

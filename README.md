@@ -22,7 +22,7 @@ git log
 git log --pretty=oneline
 ```
 
-### 提交到github
+### 2.提交到github
 查看远程库：  
 `git remote`
 
@@ -65,3 +65,10 @@ github的名字和项目名 Jungle2329/getlearn.git
 用带参数的git log也可以看到分支的合并情况：
 `git log --graph --pretty=oneline --abbrev-commit`
 
+### 5.分支管理策略
+使用`git merge dev`的时候默认使用`Fast forword`模式，这种模式下，删除分支后，会丢掉分支信息  
+如果想要强制禁用`Fast forword`可以使用如下方法：  
+```
+$ git merge --no-ff -m "提交日志" dev
+本次合并会创建一个commit所以需要 -m "日志"
+```

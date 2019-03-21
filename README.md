@@ -62,3 +62,4 @@ github的名字和项目名 Jungle2329/getlearn.git
 `git branch -d <name>`
 
 傻逼
+超傻逼

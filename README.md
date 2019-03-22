@@ -8,7 +8,12 @@
 `git status`
 
 添加文件到缓冲区：  
-`git add <file>`
+```
+git add <file>
+git add -A  提交所有变化
+git add -u  提交被修改(modified)和被删除(deleted)文件，不包括新文件(new)
+git add .  提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件
+```
 
 删除文件：  
 `git rm <file>`
@@ -49,21 +54,25 @@ HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历�
 
 ### 4.提交到github
 查看远程库：  
-`git remote`
+`$ git remote`
 
 添加远程库:
 ```
-git remote add <remotename> git@github.com:Jungle2329/getlearn.git
+$ git remote add <remotename> git@github.com:Jungle2329/getlearn.git
 其中<remotename>一般默认是origin
 github的服务器 git@github.com
 github的名字和项目名 Jungle2329/getlearn.git
 ```
  
-从远程库克隆到本地库：  
-`git clone git@github.com:Jungle2329/getlearn.git`
+从远程库克隆到本地：  
+`$ git clone git@github.com:Jungle2329/getlearn.git`
 
 提交到远程库：  
-`git push <name>`
+`$ git push <name>`
+
+从远程库拉取：  
+`$ git pull`
+
 
 ### 5.分支
 查看分支：  

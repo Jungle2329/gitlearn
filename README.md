@@ -154,9 +154,11 @@ stash@{0}: WIP on dev: f52c633 add merge
 `bug`分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；
 
 `feature`分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。
-<<<<<<< HEAD
 
-当前master
-=======
-当前dev
->>>>>>> dev
+- 多人开发的流程：  
+ 1. 查看远程库信息，使用git remote -v；
+ - 本地新建的分支如果不推送到远程，对其他人就是不可见的；
+ - 从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+ - 在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+ - 建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+ - 从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。

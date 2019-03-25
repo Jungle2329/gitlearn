@@ -171,3 +171,33 @@ stash@{0}: WIP on dev: f52c633 add merge
  - 在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
  - 建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
  - 从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
+
+### 11.标签
+
+- 给当前`HEAD`打标签：  
+`$ git tag v1.0`
+- 给某个版本打标签：  
+`$ git tag v1.1 65f5d1f`  
+- 打带有信息的标签：  
+`$ git tag -a v1.2 -m "msg"`
+- 查看所有标签：  
+`$ git tag`
+- 展示标签：  
+`$ git show v1.1`
+- 删除标签：  
+`$ git tag -d v1.0`
+- 推送某个标签到远程：  
+`$ git push origin v1.0`
+- 推送所有尚未推送的标签到远程：  
+`$ git push origin --tags`
+- 如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：  
+`$ git tag -d v1.0`  
+然后，从远程删除。删除命令也是push，但是格式如下：  
+`$ git push origin :refs/tags/v1.0`
+
+### 12.忽略
+- 直接添加忽略的方案到.ignore  
+- 强行提交已经被忽略的文件：  
+`$ git add -f <file>`
+查看文件忽略状态：  
+`$ git check-ignore -v <file>`

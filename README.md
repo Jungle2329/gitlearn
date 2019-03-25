@@ -87,8 +87,8 @@ github的名字和项目名 Jungle2329/getlearn.git
 创建并切换分支name：  
 `git checkout -b <name>`
 
-这里是个冲突
-
+在本地创建dev并切换到远程origin分支dev：  
+`$ git checkout -b dev origin/dev`
 
 这时就可以在分支工作了，工作完再合并到master上
 
@@ -154,5 +154,9 @@ stash@{0}: WIP on dev: f52c633 add merge
 `bug`分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；
 
 `feature`分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。
+<<<<<<< HEAD
 
 当前master
+=======
+当前dev
+>>>>>>> dev

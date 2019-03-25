@@ -87,7 +87,8 @@ github的名字和项目名 Jungle2329/getlearn.git
 创建并切换分支name：  
 `git checkout -b <name>`
 
-这里是个冲突~!~
+在本地创建dev并切换到远程origin分支dev：  
+`$ git checkout -b dev origin/dev`
 
 这时就可以在分支工作了，工作完再合并到master上
 

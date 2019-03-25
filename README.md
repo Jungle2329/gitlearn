@@ -87,6 +87,8 @@ github的名字和项目名 Jungle2329/getlearn.git
 创建并切换分支name：  
 `git checkout -b <name>`
 
+这里是个冲突~!~
+
 这时就可以在分支工作了，工作完再合并到master上
 
 合并name到当前分支：  

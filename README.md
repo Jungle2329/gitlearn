@@ -8,12 +8,13 @@
 `git status`
 
 - 添加文件到缓冲区：  
-```
-git add <file>
-git add -A  提交所有变化
-git add -u  提交被修改(modified)和被删除(deleted)文件，不包括新文件(new)
-git add .  提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件
-```
+`git add <file>`  
+`git add -A  提交所有变化`  
+`git add -u  提交被修改(modified)和被删除(deleted)文件，不包括新文件(new)`  
+`git add .  提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件`  
+
+- 移除缓冲区：  
+`git reset -- <file> 把某个文件重置为未添加的状态，用这个命令可以保证某个文件不被添加到缓冲区`  
 
 - 删除文件：  
 `git rm <file>`
@@ -205,7 +206,7 @@ stash@{0}: WIP on dev: f52c633 add merge
 ```
 在git中如果想忽略掉某个文件，不让这个文件提交到版本库中，可以使用修改根目录中 .gitignore 文件的方法（如果没有这个文件，则需自己手工建立此文件）。这个文件每一行保存了一个匹配的规则例如：
 
-# 此为注释 – 将被 Git 忽略
+ # 此为注释 – 将被 Git 忽略
 *.sample 　　 # 忽略所有 .sample 结尾的文件
 !lib.sample 　　 # 但 lib.sample 除外
 /TODO 　　 # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO

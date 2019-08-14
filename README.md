@@ -159,6 +159,11 @@ stash@{0}: WIP on dev: f52c633 add merge
 - 查看远程库的具体信息：  
 `$ git remote -v`
 
+`多端的远程库名字必须是相同的，不然无法使用`
+
+-删除远程库
+`$ git remote remove [远程库]`
+
 - 推送分支：  
 `$ git push origin master`
 

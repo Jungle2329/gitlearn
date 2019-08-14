@@ -110,7 +110,15 @@ github服务器 	 git@github.com:Jungle2329/gitlearn.git
 
 ### 6.解决冲突
 用带参数的git log也可以看到分支的合并情况：
-`git log --graph --pretty=oneline --abbrev-commit`
+`git log --graph --pretty=oneline --abbrev-commit`  
+出现冲突的时候使用`git status`可以查看哪个文件出现了冲突，找到该文件，冲突的地方会以`>>>>>`,`=====`,`<<<<<`标记冲突的区域
+
+	<<<<<<< HEAD
+	Creating a new branch is quick & simple.
+	=======
+	Creating a new branch is quick AND simple.
+	>>>>>>> feature1
+
 
 ### 7.分支管理策略
 使用`git merge dev`的时候默认使用`Fast forword`模式，这种模式下，删除分支后，会丢掉分支信息  

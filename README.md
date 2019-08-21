@@ -74,9 +74,10 @@ github服务器 	 git@github.com:Jungle2329/gitlearn.git
 局域网			 <ip>D:/test/gitlearn
 ```
 
-- 从远程库克隆到本地：  
-`$ git clone git@github.com:Jungle2329/getlearn.git`
-
+- 从远程库克隆主分支到本地：  
+`$ git clone git@github.com:Jungle2329/gitlearn.git`
+- 从远程库克隆某个分支到本地
+`$ git clone -b <分支名> git@github.com:Jungle2329/gitlearn.git`
 - 提交到远程库：  
 `$ git push <name>`
 

@@ -74,9 +74,10 @@ github服务器 	 git@github.com:Jungle2329/gitlearn.git
 局域网			 <ip>D:/test/gitlearn
 ```
 
-- 从远程库克隆到本地：  
-`$ git clone git@github.com:Jungle2329/getlearn.git`
-
+- 从远程库克隆主分支到本地：  
+`$ git clone git@github.com:Jungle2329/gitlearn.git`
+- 从远程库克隆某个分支到本地:  
+`$ git clone -b <分支名> git@github.com:Jungle2329/gitlearn.git`
 - 提交到远程库：  
 `$ git push <name>`
 
@@ -278,7 +279,5 @@ X表示倒数第几次提交。
 
 
 ### git常用功能补充
-`git show <filename>` 可以查看该文件的修改信息
-`git log --pretty=oneline <filename>` 可以查看该文件的提交日志
-
-
+`git show <filename>` 可以查看该文件的修改信息  
+`git log --pretty=oneline <filename>` 可以查看该文件的提交日志  

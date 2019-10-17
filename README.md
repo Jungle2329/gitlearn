@@ -234,3 +234,51 @@ git rm -r --cached .
 git add .
 git commit -m 'update .gitignore'
 ```
+
+
+### 13.git修改日志的方法
+有时候，日志已经提交了，但是发现还有要修改的地方，需要以以下的方法来修改，主要有4中情况
+
+1. 需要修改最后一次的提交，而且还没有push  
+`git commit --amend`  
+之后进入vi编辑器，直接修改就好，插入为i，保存并关闭为wq
+
+- 需要修改最后一次的提交，但是push了  
+`git commit --amend`  
+`git push origin master --force`  
+和情况1的做法一样。使用push推送到远程服务器是需要加上--force，让服务器更新历史记录。  
+**需要注意的是：把修改后的日志强制push到Git服务器，如果别人本地的副本有修改，很有可能会导致他们同步不了，所以最好和他们核对下。**
+
+- 需要修改某次的提交，而且还没有push  
+假设commit是倒数第3次提交，这个可以使用git rebase修改编辑状态  
+`git rebase -i HEAD~3`  
+它会打开一个编辑器，它会把最后前3次的提交显示出来，类似于：  
+`pick 94fc8fe 添加内容a`  
+`pick 04f0d18 添加内容c`  
+`pick b1b451d 添加内容d`  
+这时需要把pick修改为edit，类似于：  
+`pick 94fc8fe 添加内容a`  
+`edit 04f0d18 添加内容c`  
+`pick b1b451d 添加内容d`  
+接着使用：  
+`git commit --amend`  
+完成编辑后使用提交修改  
+`git rebase --continue`
+
+- 需要某次的提交，但是push了  
+修改方法基本和情况3相同  
+`git rebase -i HEAD~X`  
+`git commit --amend`  
+`git rebase --continue`  
+X表示倒数第几次提交。  
+完成编辑日志后，执行push：  
+`git push origin master --force`  
+**注意：这个情况二相似，把修改后的日志强制push到Git服务器，如果别人本地的副本有修改，很有可能会导致他们同步不了，所以最好和他们核对下。**
+
+
+
+### git常用功能补充
+`git show <filename>` 可以查看该文件的修改信息
+`git log --pretty=oneline <filename>` 可以查看该文件的提交日志
+
+

@@ -162,8 +162,11 @@ stash@{0}: WIP on dev: f52c633 add merge
 
 `多端的远程库名字必须是相同的，不然无法使用`
 
--删除远程库
+- 远程库删除
 `$ git remote remove [远程库]`
+
+- 远程库修改
+`$ git remote set-url`	
 
 - 推送分支：  
 `$ git push origin master`
